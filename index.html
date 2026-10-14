@@ -1,4 +1,6 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Sarnish Kour</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="google-site-verification" content="2jv9Xk17Uol6hzdftSQof3G1AyarJ9m9aFpgP3Ng8pA" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap">
@@ -393,11 +395,14 @@ button { font-family: var(--f-sans); }
 
 <!-- NAV -->
 <nav class="nav">
-  <span class="nav-name" onclick="goTo('home')" title="Home" style="font-size:1.4rem; font-weight:300; opacity:0.7; cursor:pointer; line-height:1;">∞</span>
+  <span class="nav-name" onclick="goTo('home')" title="Home" style="cursor:pointer; line-height:1; display:flex; flex-direction:column; align-items:center; gap:0.15rem;">
+    <span style="font-size:2.2rem; font-weight:300; opacity:0.75; line-height:1;">∞</span>
+    <span style="font-family:var(--f-serif); font-size:0.72rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; opacity:0.75; line-height:1;">Infinitely Finite</span>
+  </span>
   <ul class="nav-links" id="nav-list">
     <li id="navli-home"><button class="nav-btn" onclick="goTo('home')" id="nav-home">Home</button></li>
     <li class="has-dropdown" id="navli-work">
-      <button class="nav-btn" onclick="toggleWorkDropdown(event)" id="nav-work">Work</button>
+      <button class="nav-btn" onclick="toggleWorkDropdown(event)" id="nav-work">Professional Journey</button>
       <div class="nav-dropdown" id="work-dropdown">
         <button onclick="goTo('work-iaf');closeWorkDropdown()" id="nav-work-iaf">A Decade in Blue</button>
         <button onclick="goTo('work-corp');closeWorkDropdown()" id="nav-work-corp">Corporate Experience</button>
@@ -416,7 +421,7 @@ button { font-family: var(--f-sans); }
 <div class="mobile-drawer" id="drawer">
   <button class="mobile-drawer-close" onclick="closeDrawer()">✕</button>
   <button class="mob-item" id="mob-home" onclick="goTo('home');closeDrawer()">Home</button>
-  <button class="mob-item" onclick="toggleSub()">Work ▾</button>
+  <button class="mob-item" onclick="toggleSub()">Professional Journey ▾</button>
   <div class="mob-sub" id="mob-sub">
     <button class="mob-sub-item" onclick="goTo('work-iaf');closeDrawer()">A Decade in Blue</button>
     <button class="mob-sub-item" onclick="goTo('work-corp');closeDrawer()">Corporate Experience</button>
@@ -477,29 +482,29 @@ button { font-family: var(--f-sans); }
   </div>
   <div class="values-grid">
     <div class="value">
-      <span class="value-glyph">✦</span>
+      <span class="value-glyph">☸</span>
       <div class="value-title">Sarbat Da Bhala — for everyone's good</div>
       <div class="value-body">A Punjabi phrase meaning the wellbeing of all. Every decision carries a wider consequence. I try to hold that awareness — in leadership, in research, in how I engage with the world.</div>
     </div>
     <div class="value">
-      <span class="value-glyph">✦</span>
+      <span class="value-glyph">☸</span>
       <div class="value-title">Integrity is the baseline</div>
       <div class="value-body">Everything else is built on top of this. Without it, nothing holds. It is not a value I aspire to. It is the one I refuse to negotiate.</div>
     </div>
     <div class="value">
-      <span class="value-glyph">✦</span>
+      <span class="value-glyph">☸</span>
       <div class="value-title">Reverence for all that exists</div>
       <div class="value-body">Not just people. Every stone, every creature, every quiet thing that sustains life deserves respect. This is not sentiment — it is a way of paying attention, and of recognising that we share this earth, not own it.</div>
     </div>
   </div>
   <div style="display:grid; grid-template-columns: repeat(2,1fr); gap:2.5rem; margin-top:1.5rem; max-width:calc(66.66% + 1.25rem); margin-left:auto; margin-right:auto;">
     <div class="value">
-      <span class="value-glyph">✦</span>
+      <span class="value-glyph">☸</span>
       <div class="value-title">Know what is yours to carry</div>
       <div class="value-body">Most of what we worry about is not in our control. Clarity about this distinction is where effective leadership and a calmer life both begin.</div>
     </div>
     <div class="value">
-      <span class="value-glyph">✦</span>
+      <span class="value-glyph">☸</span>
       <div class="value-title">Choose your battles</div>
       <div class="value-body">Not every hill is worth holding. The leaders who endure know which fights matter — and who can tell the difference in the moment, not only in hindsight.</div>
     </div>
@@ -514,16 +519,21 @@ button { font-family: var(--f-sans); }
     <span style="font-size:0.95rem; opacity:0.7;">✦</span>
     <span style="border-left:2px solid var(--teal); padding-left:0.65rem;">Experiences</span>
   </div>
-  <div class="home-cards">
+  <div class="home-cards" style="grid-template-columns:repeat(2,1fr);">
     <div class="home-card" onclick="goTo('work-iaf')" style="color:var(--teal); border-color:var(--rule);">
       <div class="home-card-label" style="color:var(--teal)">A Decade in Blue</div>
       <div class="home-card-title">Indian Air Force</div>
       <div class="home-card-desc">Ten years as a commissioned officer. The values that still govern everything else.</div>
     </div>
     <div class="home-card" onclick="goTo('work-corp')" style="color:var(--amber); border-color:var(--rule);">
-      <div class="home-card-label" style="color:var(--amber)">Corporate &amp; Academia</div>
-      <div class="home-card-title">WTW &amp; TIET</div>
-      <div class="home-card-desc">From Fortune 500 advisory to building institutions from a blank page.</div>
+      <div class="home-card-label" style="color:var(--amber)">Corporate</div>
+      <div class="home-card-title">Willis Towers Watson</div>
+      <div class="home-card-desc">Fortune 500 advisory across US &amp; UK pension clients — built from zero.</div>
+    </div>
+    <div class="home-card" onclick="goTo('work-acad')" style="color:var(--rose); border-color:var(--rule);">
+      <div class="home-card-label" style="color:var(--rose)">Academia</div>
+      <div class="home-card-title">Thapar Institute (TIET)</div>
+      <div class="home-card-desc">Building institutions, partnerships, and accreditations from a blank page.</div>
     </div>
     <div class="home-card" onclick="goTo('research')" style="color:var(--periwinkle); border-color:var(--rule);">
       <div class="home-card-label" style="color:var(--periwinkle)">Research</div>
@@ -545,29 +555,29 @@ button { font-family: var(--f-sans); }
   <div class="section-label" style="color:var(--mauve)">What I Believe</div>
   <div class="values-grid">
     <div class="value">
-      <span class="value-glyph">✦</span>
+      <span class="value-glyph">☸</span>
       <div class="value-title">Sarbat Da Bhala — for everyone's good</div>
       <div class="value-body">A Punjabi phrase meaning the wellbeing of all. It is a prayer and a principle — the belief that no decision made in isolation is truly sound, and that the measure of any action is what it does for the world beyond yourself. I carry this in every role I have held: in the Air Force, in institution-building, in research on social ventures that exist precisely to serve those the market overlooks.</div>
     </div>
     <div class="value">
-      <span class="value-glyph">✦</span>
+      <span class="value-glyph">☸</span>
       <div class="value-title">Integrity is the baseline</div>
       <div class="value-body">Everything else — strategy, influence, relationships — is built on top of this. Without it, nothing else holds. It is not a value I aspire to. It is the one I refuse to negotiate. In uniform, in boardrooms, in research — the standard has stayed the same.</div>
     </div>
     <div class="value">
-      <span class="value-glyph">✦</span>
+      <span class="value-glyph">☸</span>
       <div class="value-title">Reverence for all that exists</div>
       <div class="value-body">Not just people. Every stone, every creature, every quiet thing that sustains life deserves respect. A stone that supports a fish in the water, the soil that holds a tree — nothing on this earth is without consequence. This is not sentiment. It is a way of paying attention, and of recognising that we share this earth, not own it.</div>
     </div>
   </div>
   <div class="values-grid" style="margin-top:2.5rem; grid-template-columns: repeat(2, minmax(0,420px)); justify-content:center;">
     <div class="value">
-      <span class="value-glyph">✦</span>
+      <span class="value-glyph">☸</span>
       <div class="value-title">Know what is yours to carry</div>
       <div class="value-body">Most of what we worry about is not in our control. Most of what we can change, we leave untouched. Clarity about this distinction — what is mine to act on, what is not — is where effective leadership and a calmer life both begin. Ten years in the Air Force reinforced this: when the stakes are real, it is the difference between decisive action and paralysis.</div>
     </div>
     <div class="value">
-      <span class="value-glyph">✦</span>
+      <span class="value-glyph">☸</span>
       <div class="value-title">Choose your battles</div>
       <div class="value-body">Not every hill is worth holding. The leaders who endure know which fights matter, when to push, and when to let go — and who can tell the difference in the moment, not only in hindsight. I have been in rooms where everything felt urgent. The ones who moved things forward were rarely the loudest. They were the most discerning.</div>
     </div>
@@ -593,7 +603,7 @@ button { font-family: var(--f-sans); }
 <section class="section">
   <div class="work-phases">
     <div class="phase">
-      <div class="phase-year">2004 –<br>2014</div>
+      <div class="phase-year">2008 –<br>2018</div>
       <div>
         <div class="phase-title">Squadron Leader</div>
         <div class="phase-org" style="color:var(--teal)">Indian Air Force</div>
@@ -961,3 +971,5 @@ function closeDetail(id) {
 }
 </script>
 
+
+</body></html>
