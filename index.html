@@ -257,6 +257,7 @@ button { font-family: var(--f-sans); }
 
 /* ── VALUES ── */
 .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2.5rem; }
+.values-grid-2 { grid-template-columns: repeat(2,1fr); }
 .value-glyph { display: block; font-size: 1.1rem; color: var(--mauve); margin-bottom: 0.75rem; opacity: 0.75; }
 .value-title { font-family: var(--f-serif); font-size: 1.15rem; font-weight: 500; color: var(--fg); margin-bottom: 0.6rem; line-height: 1.25; }
 .value-body { font-size: 0.83rem; color: var(--fg2); line-height: 1.8; }
@@ -385,6 +386,7 @@ button { font-family: var(--f-sans); }
   .hero-photo { position: static; aspect-ratio: 4/3; order: -1; }
   .hero-text-lower { order: 1; }
   .values-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .values-grid-2 { grid-template-columns: 1fr; }
   .home-cards { grid-template-columns: 1fr; }
   .phase { grid-template-columns: 3.5rem 1fr; gap: 0 0.75rem; }
   .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
@@ -425,6 +427,7 @@ button { font-family: var(--f-sans); }
 <div class="mobile-drawer" id="drawer">
   <button class="mobile-drawer-close" onclick="closeDrawer()">✕</button>
   <button class="mob-item" id="mob-home" onclick="goTo('home');closeDrawer()">Home</button>
+  <button class="mob-item" onclick="goTo('values');closeDrawer()">Values</button>
   <button class="mob-item" onclick="toggleSub()">Professional Journey ▾</button>
   <div class="mob-sub" id="mob-sub">
     <button class="mob-sub-item" onclick="goTo('work-iaf');closeDrawer()">A Decade in Blue</button>
@@ -620,7 +623,7 @@ button { font-family: var(--f-sans); }
       <div class="value-body">Not just people. Every stone, every creature, every quiet thing that sustains life deserves respect. A stone that supports a fish in the water, the soil that holds a tree — nothing on this earth is without consequence. This is not sentiment. It is a way of paying attention, and of recognising that we share this earth, not own it.</div>
     </div>
   </div>
-  <div class="values-grid" style="margin-top:2.5rem;">
+  <div class="values-grid values-grid-2" style="margin-top:2.5rem;">
     <div class="value">
       <span class="value-glyph">☸</span>
       <div class="value-title">Know what is yours to carry</div>
