@@ -92,11 +92,11 @@ button { font-family: var(--f-sans); }
 
 /* Dropdown */
 .nav-dropdown {
-  position: absolute; top: calc(100% + 8px); left: 50%;
+  position: absolute; top: 100%; left: 50%;
   transform: translateX(-50%);
   background: var(--bg); border: 1px solid var(--rule); border-radius: 4px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.07); min-width: 190px;
-  padding: 0.4rem 0; opacity: 0; pointer-events: none;
+  padding: 0.4rem 0; padding-top: 0.65rem; margin-top: 0; opacity: 0; pointer-events: none;
   transition: opacity 0.15s; z-index: 100;
 }
 .has-dropdown:hover .nav-dropdown,
@@ -504,7 +504,7 @@ button { font-family: var(--f-sans); }
       <div class="value-body">Not just people. Every stone, every creature, every quiet thing that sustains life deserves respect. This is not sentiment — it is a way of paying attention, and of recognising that we share this earth, not own it.</div>
     </div>
   </div>
-  <div class="values-grid values-grid-2" style="margin-top:1.5rem; max-width:calc(66.66% + 1.25rem); margin-left:auto; margin-right:auto;">
+  <div class="values-grid values-grid-2" style="margin-top:1.5rem;">
     <div class="value">
       <span class="value-glyph">☸</span>
       <div class="value-title">Know what is yours to carry</div>
@@ -995,16 +995,8 @@ function toggleWorkDropdown(e) {
   const dd = document.getElementById('work-dropdown');
   dd.classList.toggle('open');
 }
-// Open on hover (desktop only)
-const navliWork = document.getElementById('navli-work');
-navliWork.addEventListener('mouseenter', function() {
-  document.getElementById('work-dropdown').classList.add('open');
-});
-navliWork.addEventListener('mouseleave', function() {
-  document.getElementById('work-dropdown').classList.remove('open');
-});
 document.addEventListener('click', function(e) {
-  if (!navliWork.contains(e.target)) closeWorkDropdown();
+  if (!document.getElementById('navli-work').contains(e.target)) closeWorkDropdown();
 });
 
 function togglePoem(id, btn) {
