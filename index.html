@@ -973,7 +973,7 @@ button { font-family: var(--f-sans); }
 const PAGES = ['home','values','work-iaf','work-corp','work-acad','research','global','creations','contact'];
 
 function goTo(id) {
-  PAGES.forEach(p => document.getElementById('page-' + p).classList.remove('active'));
+  PAGES.forEach(p => { const el = document.getElementById('page-' + p); if (el) el.classList.remove('active'); });
   const t = document.getElementById('page-' + id);
   if (t) t.classList.add('active');
   document.querySelectorAll('.nav-btn, .nav-dropdown button').forEach(el => el.classList.remove('active'));
