@@ -98,7 +98,6 @@ button { font-family: var(--f-sans); }
   padding: 0.4rem 0; opacity: 0; pointer-events: none;
   transition: opacity 0.15s; z-index: 100;
 }
-.has-dropdown:hover .nav-dropdown,
 .nav-dropdown.open { opacity: 1; pointer-events: all; }
 .nav-dropdown button {
   display: block; width: 100%; padding: 0.55rem 1.1rem;
@@ -256,6 +255,7 @@ button { font-family: var(--f-sans); }
 /* ── VALUES ── */
 .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2.5rem; }
 .values-grid-2col { grid-template-columns: repeat(2, minmax(0,420px)); }
+.values-grid-home2 { display:grid; grid-template-columns: repeat(2,1fr); gap:2.5rem; margin-top:1.5rem; max-width:calc(66.66% + 1.25rem); margin-left:auto; margin-right:auto; }
 
 /* ── HOME CARD LOGO AREA ── */
 .home-card-logo { height: 70px; display: flex; align-items: center; margin-bottom: 0.75rem; }
@@ -387,7 +387,7 @@ button { font-family: var(--f-sans); }
   .hero-bottom .hero-photo { order: -1; aspect-ratio: 4/3; max-width: 100%; }
   .hero-bottom .hero-text-lower { width: 100%; }
   .hero-photo { position: static; aspect-ratio: 4/3; }
-  .values-grid, .values-grid-2col { grid-template-columns: 1fr !important; gap: 2rem; }
+  .values-grid, .values-grid-2col, .values-grid-home2 { grid-template-columns: 1fr !important; gap: 2rem; }
   .home-cards { grid-template-columns: 1fr; }
   .phase { grid-template-columns: 3.5rem 1fr; gap: 0 0.75rem; }
   .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
@@ -505,7 +505,7 @@ button { font-family: var(--f-sans); }
       <div class="value-body">Not just people. Every stone, every creature, every quiet thing that sustains life deserves respect. This is not sentiment — it is a way of paying attention, and of recognising that we share this earth, not own it.</div>
     </div>
   </div>
-  <div style="display:grid; grid-template-columns: repeat(2,1fr); gap:2.5rem; margin-top:1.5rem; max-width:calc(66.66% + 1.25rem); margin-left:auto; margin-right:auto;">
+  <div class="values-grid-home2">
     <div class="value">
       <span class="value-glyph">☸</span>
       <div class="value-title">Know what is yours to carry</div>
@@ -517,6 +517,7 @@ button { font-family: var(--f-sans); }
       <div class="value-body">Not every hill is worth holding. The leaders who endure know which fights matter — and who can tell the difference in the moment, not only in hindsight.</div>
     </div>
   </div>
+</div>
 </div>
 </div>
 
@@ -553,8 +554,6 @@ button { font-family: var(--f-sans); }
       <div class="home-card-desc">Social entrepreneurship, opportunity development, and the work between them.</div>
     </div>
   </div>
-</div>
-</div>
 </div>
 
 <!-- Global Experience teaser -->
@@ -980,9 +979,9 @@ function goTo(id) {
   const ne = document.getElementById('nav-' + id);
   if (ne) ne.classList.add('active');
   if (['work-iaf','work-corp','work-acad'].includes(id)) document.getElementById('nav-work').classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
   history.replaceState(null, '', '#' + id);
   closeDrawer();
+  setTimeout(function(){ window.scrollTo({ top: 0, behavior: 'auto' }); }, 0);
 }
 (function(){ const h = location.hash.replace('#',''); if(h && PAGES.includes(h)) goTo(h); })();
 
@@ -994,7 +993,7 @@ function toggleWorkDropdown(e) {
   e.stopPropagation();
   const dd = document.getElementById('work-dropdown');
   const isOpen = dd.classList.contains('open');
-  if (isOpen) { dd.classList.remove('open'); goTo('work-iaf'); }
+  if (isOpen) { dd.classList.remove('open'); }
   else { dd.classList.add('open'); }
 }
 document.addEventListener('click', function(e) {
