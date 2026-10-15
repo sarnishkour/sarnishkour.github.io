@@ -135,6 +135,7 @@ button { font-family: var(--f-sans); }
 .mob-sub { padding-left: 1.5rem; overflow: hidden; max-height: 0; transition: max-height 0.2s; }
 .mob-sub.open { max-height: 300px; }
 .mob-sub-item {
+  display: block; width: 100%;
   font-family: var(--f-serif); font-size: 1.3rem; color: var(--fg3);
   cursor: pointer; padding: 0.2rem 0; background: none; border: none; text-align: left;
 }
@@ -381,7 +382,8 @@ button { font-family: var(--f-sans); }
   .hero { padding-block: 2.5rem 2rem; }
   .hero-top { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; }
   .hero-bottom { grid-template-columns: 1fr; gap: 1.5rem; }
-  .hero-photo { position: static; aspect-ratio: 4/3; }
+  .hero-photo { position: static; aspect-ratio: 4/3; order: -1; }
+  .hero-text-lower { order: 1; }
   .values-grid { grid-template-columns: 1fr; gap: 2rem; }
   .home-cards { grid-template-columns: 1fr; }
   .phase { grid-template-columns: 3.5rem 1fr; gap: 0 0.75rem; }
@@ -988,12 +990,18 @@ function closeWorkDropdown() { document.getElementById('work-dropdown').classLis
 function toggleWorkDropdown(e) {
   e.stopPropagation();
   const dd = document.getElementById('work-dropdown');
-  const isOpen = dd.classList.contains('open');
-  if (isOpen) { dd.classList.remove('open'); goTo('work-iaf'); }
-  else { dd.classList.add('open'); }
+  dd.classList.toggle('open');
 }
+// Open on hover (desktop only)
+const navliWork = document.getElementById('navli-work');
+navliWork.addEventListener('mouseenter', function() {
+  document.getElementById('work-dropdown').classList.add('open');
+});
+navliWork.addEventListener('mouseleave', function() {
+  document.getElementById('work-dropdown').classList.remove('open');
+});
 document.addEventListener('click', function(e) {
-  if (!document.getElementById('navli-work').contains(e.target)) closeWorkDropdown();
+  if (!navliWork.contains(e.target)) closeWorkDropdown();
 });
 
 function togglePoem(id, btn) {
