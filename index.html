@@ -316,6 +316,8 @@ button { font-family: var(--f-sans); }
 .contact-val { font-size: 0.86rem; color: var(--fg); }
 .contact-val a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--rule); }
 .contact-val a:hover { text-decoration-color: var(--rose); }
+.contact-note { margin-top: 1.4rem; font-family: var(--f-serif); font-style: italic; font-size: 0.95rem; line-height: 1.55; color: var(--fg3); }
+.contact-sub { display: block; font-size: 0.78rem; color: var(--fg3); margin-top: 0.15rem; }
 
 /* ── CREATIONS ── */
 .creations-intro { font-size: 0.88rem; color: var(--fg2); line-height: 1.85; max-width: 58ch; margin-bottom: 2.5rem; }
@@ -788,14 +790,14 @@ button { font-family: var(--f-sans); }
 <section class="section" style="border-bottom:none;">
   <p class="global-intro">Sarnish's work has taken her across research institutions, corporate boardrooms, and international summits — not as a visitor, but as someone with a role in the room. Click any destination to read more.</p>
   <div class="global-grid">
-    <div class="global-card" onclick="toggleDetail('us')"><div class="global-flag">🇺🇸</div><div><div class="global-country">United States</div><div class="global-desc">AOM Annual Meeting, Boston</div></div></div>
-    <div class="global-card" onclick="toggleDetail('ch')"><div class="global-flag">🇨🇭</div><div><div class="global-country">Switzerland</div><div class="global-desc">IMD Lausanne</div></div></div>
-    <div class="global-card" onclick="toggleDetail('dk')"><div class="global-flag">🇩🇰</div><div><div class="global-country">Denmark</div><div class="global-desc">AOM Doctoral Consortium, CBS</div></div></div>
-    <div class="global-card" onclick="toggleDetail('pt')"><div class="global-flag">🇵🇹</div><div><div class="global-country">Portugal</div><div class="global-desc">MARIHE Consortium Meeting</div></div></div>
-    <div class="global-card" onclick="toggleDetail('fi')"><div class="global-flag">🇫🇮</div><div><div class="global-country">Finland</div><div class="global-desc">University of Tampere</div></div></div>
-    <div class="global-card" onclick="toggleDetail('jp')"><div class="global-flag">🇯🇵</div><div><div class="global-country">Japan</div><div class="global-desc">JETRO &amp; MMRI partnership</div></div></div>
-    <div class="global-card" onclick="toggleDetail('ae')"><div class="global-flag">🇦🇪</div><div><div class="global-country">UAE</div><div class="global-desc">Institutional partnerships</div></div></div>
-    <div class="global-card" onclick="toggleDetail('in')"><div class="global-flag">🇮🇳</div><div><div class="global-country">India (Dehradun)</div><div class="global-desc">TIET outreach coordination</div></div></div>
+    <div class="global-card" onclick="toggleDetail('us', event)"><div class="global-flag">🇺🇸</div><div><div class="global-country">United States</div><div class="global-desc">AOM Annual Meeting, Boston</div></div></div>
+    <div class="global-card" onclick="toggleDetail('ch', event)"><div class="global-flag">🇨🇭</div><div><div class="global-country">Switzerland</div><div class="global-desc">IMD Lausanne</div></div></div>
+    <div class="global-card" onclick="toggleDetail('dk', event)"><div class="global-flag">🇩🇰</div><div><div class="global-country">Denmark</div><div class="global-desc">AOM Doctoral Consortium, CBS</div></div></div>
+    <div class="global-card" onclick="toggleDetail('pt', event)"><div class="global-flag">🇵🇹</div><div><div class="global-country">Portugal</div><div class="global-desc">MARIHE Consortium Meeting</div></div></div>
+    <div class="global-card" onclick="toggleDetail('fi', event)"><div class="global-flag">🇫🇮</div><div><div class="global-country">Finland</div><div class="global-desc">University of Tampere</div></div></div>
+    <div class="global-card" onclick="toggleDetail('jp', event)"><div class="global-flag">🇯🇵</div><div><div class="global-country">Japan</div><div class="global-desc">JETRO &amp; MMRI partnership</div></div></div>
+    <div class="global-card" onclick="toggleDetail('ae', event)"><div class="global-flag">🇦🇪</div><div><div class="global-country">UAE</div><div class="global-desc">Institutional partnerships</div></div></div>
+    <div class="global-card" onclick="toggleDetail('in', event)"><div class="global-flag">🇮🇳</div><div><div class="global-country">India (Dehradun)</div><div class="global-desc">TIET outreach coordination</div></div></div>
   </div>
   <div id="detail-us" class="detail-panel"><button class="detail-close" onclick="closeDetail('us')">✕</button><div class="detail-panel-header"><div class="detail-panel-flag">🇺🇸</div><div><div class="detail-panel-title">United States — Boston, MA</div><div class="detail-panel-year">2023</div></div></div><p class="detail-panel-body">Sarnish presented her doctoral research at the Academy of Management Annual Meeting in Boston — one of the world's most competitive management research conferences. Her paper on impact opportunity development in social ventures was accepted to the Best Paper Proceedings, placing it among the top submissions in her division.</p></div>
   <div id="detail-ch" class="detail-panel"><button class="detail-close" onclick="closeDetail('ch')">✕</button><div class="detail-panel-header"><div class="detail-panel-flag">🇨🇭</div><div><div class="detail-panel-title">Switzerland — Lausanne</div><div class="detail-panel-year">2023</div></div></div><p class="detail-panel-body">Participated in an executive leadership programme at IMD Lausanne, one of the world's leading business schools — bringing together senior professionals from across industries to examine leadership in complex, rapidly changing environments.</p></div>
@@ -902,6 +904,7 @@ button { font-family: var(--f-sans); }
     </div>
 
   </div>
+  </div><!-- /poem-cards-grid -->
 
   <p style="margin-top:2.5rem; font-family:var(--f-serif); font-style:italic; font-size:0.9rem; color:var(--fg3); text-align:center;">More coming soon — stories, reflections, and words still finding their shape.</p>
 
@@ -916,7 +919,10 @@ button { font-family: var(--f-sans); }
 <section class="section" style="border-bottom:none; padding-top:4rem;">
   <div class="section-label">Contact</div>
   <div class="contact-wrap">
-    <div class="contact-statement">Open to conversations about leadership, research collaboration, and academic appointments.</div>
+    <div>
+      <div class="contact-statement">Open to conversations about leadership, strategy and operations, institutional transformation, and research collaboration, across higher education and industry.</div>
+      <p class="contact-note">Every message is read. Notes about leadership, research, or collaboration are especially welcome.</p>
+    </div>
     <div class="contact-details">
       <div class="contact-row">
         <span class="contact-key">Email</span>
@@ -924,7 +930,7 @@ button { font-family: var(--f-sans); }
       </div>
       <div class="contact-row">
         <span class="contact-key">Location</span>
-        <span class="contact-val">India</span>
+        <span class="contact-val">Currently Surat, Gujarat<br>Rooted in Jammu &amp; Kashmir<span class="contact-sub">A decade in uniform made all of India home.</span></span>
       </div>
       <div class="contact-row">
         <span class="contact-key">LinkedIn</span>
@@ -933,6 +939,10 @@ button { font-family: var(--f-sans); }
       <div class="contact-row">
         <span class="contact-key">ORCID</span>
         <span class="contact-val"><a href="https://orcid.org/0009-0002-7874-618X" target="_blank">orcid.org/0009-0002-7874-618X</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-key">Curriculum Vitae</span>
+        <span class="contact-val"><a href="Academic_CV_Sarnish_Kour.pdf" target="_blank">Academic CV (PDF)</a><br><a href="Executive_Resume_Sarnish_Kour.pdf" target="_blank">Executive Résumé (PDF)</a></span>
       </div>
     </div>
   </div>
@@ -980,8 +990,8 @@ function goTo(id) {
   const ne = document.getElementById('nav-' + id);
   if (ne) ne.classList.add('active');
   if (['work-iaf','work-corp','work-acad'].includes(id)) { const nw = document.getElementById('nav-work'); if (nw) nw.classList.add('active'); }
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  history.replaceState(null, '', '#' + id);
+  try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {}
+  try { history.replaceState(null, '', '#' + id); } catch (e) {}
   closeDrawer();
 }
 (function(){ const h = location.hash.replace('#',''); if(h && PAGES.includes(h)) goTo(h); })();
@@ -1007,9 +1017,9 @@ function togglePoem(id, btn) {
 function toggleSub()   { document.getElementById('mob-sub').classList.toggle('open'); }
 
 let activeDetail = null;
-function toggleDetail(id) {
+function toggleDetail(id, ev) {
   const panel = document.getElementById('detail-' + id);
-  const card = event.currentTarget;
+  const card = (ev || window.event).currentTarget;
   if (activeDetail === id) { closeDetail(id); return; }
   if (activeDetail) {
     document.getElementById('detail-' + activeDetail).classList.remove('open');
